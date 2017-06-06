@@ -770,10 +770,10 @@ class InstagramAPI:
         for x in range(0, scan_rate):
             temp = self.getLikedMedia(next_id)
             temp = self.LastJson
+            for item in temp["items"]:
+                liked_items.append(item)
             try:
                 next_id = temp["next_max_id"]
-                for item in temp["items"]:
-                    liked_items.append(item)
             except KeyError as e:
                 break
         return liked_items
